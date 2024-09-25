@@ -18,9 +18,9 @@ class user extends Controller
         'name'=>'required',
         'password'=>'required'
        ]);
-        Auth::attempt($login    );
+        Auth::attempt($login);
        if (Auth::check()) {
-        return response('welcome');
+        return redirect('/home')->with('success','login successfully');
        }else{
         return back()->with('wrong','error');
        }

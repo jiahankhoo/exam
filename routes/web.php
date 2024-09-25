@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\products;
 use App\Http\Controllers\user;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+//user
 Route::get('/', function () {
     return view('welcome');
 });
@@ -27,3 +28,9 @@ Route::post('/login',[user::class,'functionlogin'])->name('functionlogin');
 Route::get('/register',[user::class,'register']);
 
 Route::post('/register',[user::class,'registerfunction'])->name('registerfunction');
+
+
+//home
+Route::get('/home',[products::class,'home']);
+
+Route::get('/add/{id}',[products::class,'add'])->name('add');
