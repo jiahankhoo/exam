@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\cart;
 use App\Http\Controllers\products;
 use App\Http\Controllers\user;
 use Illuminate\Support\Facades\Route;
@@ -29,8 +30,19 @@ Route::get('/register',[user::class,'register']);
 
 Route::post('/register',[user::class,'registerfunction'])->name('registerfunction');
 
+Route::post('/logout',[user::class,'logout'])->name('logout');
+
 
 //home
 Route::get('/home',[products::class,'home']);
 
 Route::get('/add/{id}',[products::class,'add'])->name('add');
+
+Route::post('/add/{id}',[products::class,'addcart'])->name('addcart');
+
+//cart
+Route::get('/cart/{id}',[cart::class,'cart']);
+
+Route::get('/cartlist',[cart::class,'cartlist']);
+
+Route::put('/checkout',[cart::class,'checkout'])->name('checkout');

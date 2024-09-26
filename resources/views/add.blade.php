@@ -1,5 +1,5 @@
 <div>
-    <form method="POST">
+    <form method="POST" action="{{ route('add',$product->id) }}">
         @csrf
         <label for="p_name">name</label>
         <input type="text" name="p_name" id="p_name" readonly value="{{ $product->p_name }}">

@@ -6,6 +6,8 @@
     th, td {
         text-align: left;
         padding: 8px;
+        font-size: 250%;
+        font-family: monospace
     }
     th {
         background-color: #4CAF50;
@@ -18,14 +20,20 @@
 </script>
 @endsession
 <div>
- <form action="" method="post">
-    @csrf
     <table>
         <thead>
             <th>Name</th>
             <th>Mass</th>
             <th>price</th>
             <th>action</th>
+            <th><a href="/cartlist">orderlist</a></th>
+
+            <th>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <input type="submit" value="logout" >
+                </form>
+            </th>
         </thead>
         <tbody>
             @foreach($products as $planet)
@@ -38,5 +46,4 @@
             @endforeach
         </tbody>
     </table>
- </form>
 </div>

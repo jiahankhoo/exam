@@ -40,4 +40,8 @@ class user extends Controller
         }
             return back()->withErrors('message','error');
     }
+    public function logout(Request $request){
+        Auth::logout();
+        return redirect('login');
+    }
 }
